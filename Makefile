@@ -8,7 +8,9 @@ GCC       = arm-none-eabi-gcc
 LD        = arm-none-eabi-ld
 READELF   = arm-none-eabi-readelf
 
-TARGET = main
+# Target can be anything
+# TARGET = main
+TARGET = balaji
 
 # variable for linker scrtip, map file and the readelf output
 LD_SCRIPT   = $(TARGET).ld
