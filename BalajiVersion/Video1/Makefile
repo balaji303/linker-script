@@ -9,8 +9,8 @@ LD        = arm-none-eabi-ld
 READELF   = arm-none-eabi-readelf
 
 # Target can be anything
-TARGET = main
-# TARGET = balaji
+# TARGET = main
+TARGET = balaji
 
 # variable for linker scrtip, map file and the readelf output
 LD_SCRIPT   = $(TARGET).ld
@@ -30,6 +30,10 @@ $(READELF_OUT): $(TARGET).elf
 
 # output file
 main.elf: $(OBJ) $(LD_SCRIPT)
+	$(LD) -s -Bsymbolic -gc-sections -T$(LD_SCRIPT) -static -Map=$(LD_MAP) -o $@ $(OBJ)
+
+#Balaji's version
+$(TARGET).elf: $(OBJ) $(LD_SCRIPT)
 	$(LD) -s -Bsymbolic -gc-sections -T$(LD_SCRIPT) -static -Map=$(LD_MAP) -o $@ $(OBJ)
 
 %.o: %.c
