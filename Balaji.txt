@@ -1,9 +1,11 @@
 ******************* Section 1 *******************
+
 --------- Video 1 ---------
 @balaji303 ➜ /workspaces/linker-script (dev) $ make all
 arm-none-eabi-gcc -Wall -nostdlib -fno-builtin -ffreestanding -c main.c
 arm-none-eabi-ld -s -Bsymbolic -gc-sections -Tmain.ld -static -Map=main.map -o main.elf main.o
 arm-none-eabi-readelf -a main.elf > main.txt
+
 --------- Video 4 ---------
 Linker does 3 things
 1. RESOLVE SYMBOLS/ADDRESS
@@ -31,6 +33,7 @@ This is ~~~~~MERGE SECTIONS~~~~~
 
 After the single file is created, we can place these sections anywhere in MCU,
 like internal SRAM, RAM, ROM. This process is ~~~~~PLACEMENT OF SECTIONS~~~~~
+
 --------- Video 6 ---------
 Commands used:
 1. arm-none-eabi-gcc -c main.c
@@ -63,6 +66,7 @@ we are starting at 0x8000. Check the default linker file to know more, at line 1
 Since we cant see the contents of elf file we create a txt version of it.
 Do step 7.
 To view the default linker do step 8 and 9
+
 --------- Video 8 ---------
 Create a c program with different kind of variables.
 
@@ -77,6 +81,7 @@ Used to create .s file using the contents of .o file, even .txt works instead of
 Link and create elf file using .o files
 5. arm-none-eabi-objdump -D main.elf > main.elf.s
 Create a .s version of the elf file, so we can view in the txt editor
+
 --------- Video 9 ---------
 Repeat all the steps that are done in Video8
 0. arm-none-eabi-
@@ -85,8 +90,32 @@ Prints all subcommmands
 Prints the help Commands
 2. arm-none-eabi-nm main.elf
 Prints all symbol in main.elf
+3. arm-none-eabi-objdump -D main.elf
+dumps the file info related to obj files
+4. arm-none-eabi-objdump -f main.elf
+dumps the file header
+5. arm-none-eabi-readelf -a main.elf
+Prints all the contents of elf file with header and body
 
+Elf stands for Executable and Linkable file format
 ********************* 1 End *********************
 ******************* Section 2 *******************
---------- Video 1 ---------
+--------- Video 13 ---------
+Consider this is a memory block, whose start address is 0xA000
+ and length is 0x1000
+0xA000 - -----
+         |   |
+         |   |
+         |   |
+0x1000 - -----
+
+Inside memory Banks:
+    SOME_NAME : ORIGIN = 0XA000 , LENGTH = 0x1000
+This is the syntax for the memory region where,
+    ORIGIN is the starting address of the region and
+    LENGTH is the length of the region
+    SEMICOLN is not required
+
+For memory,
+    MEMORY { ***here goes the line 113*** }
 ********************* 2 End *********************
