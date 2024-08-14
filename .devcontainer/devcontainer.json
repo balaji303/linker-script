@@ -30,7 +30,13 @@
             "davidbwaters.macos-modern-theme",
             "maziac.hex-hover-converter",
             "ms-vscode.hexeditor",
-            "trond-snekvik.gnu-mapfiles"
+            "trond-snekvik.gnu-mapfiles",
+            "esbenp.prettier-vscode",           // Code formatter for consistent code style
+            "DavidAnson.vscode-markdownlint",   // Linter for markdown files
+            "BeardedBear.beardedicons",         // Icon theme for the file explorer
+            "donjayamanne.githistory",          // Extension to view git history in a graphical way
+            "ms-azuretools.vscode-docker",      // Docker support for managing containers, images, and registries
+            "tonybaloney.vscode-pets"           // Fun extension that adds pets to your editor
           ]
       }
     }
